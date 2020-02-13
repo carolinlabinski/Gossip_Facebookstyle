@@ -9,7 +9,6 @@ The rails version used is 5.2.3.
   `bundle install`
   `rails db:create`
   `rails db:migrate`
-  `rails db:seed`
   `rails server`
 
 Access the localhost:
