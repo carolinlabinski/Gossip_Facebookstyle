@@ -2,7 +2,7 @@
 
 ## Ruby version 
 The ruby version used is 2.5.1.
-The rails version used is volontarily 5.2.3.
+The rails version used is 5.2.3.
 
 ## Install from your console
 
