@@ -28,9 +28,17 @@
           <%= link_to "Contact", contact_path, :class => "nav-link"%>
         </li>
       </ul>
-     <%= link_to "Connexion", contact_path, :class => "btn btn-outline-primary"%>
+      <%= link_to "Connexion", new_session_path, :class => "btn btn-outline-primary space_left_button" %> 
+     <%= link_to "Creation compte", new_user_path, :class => "btn btn-outline-primary space_left_button" %> 
     </div>
+
+
+
+
     </nav>
+
+  
+
   <%= yield %>
 </body>
 </html>

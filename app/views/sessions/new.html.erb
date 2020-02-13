@@ -1,0 +1,20 @@
+
+
+<br /> <br />
+
+
+<center>
+<h5 class="text-center mt-4 mb-4">Connectez-vous:</h5>
+    <%= form_tag users_path, method: "POST" do %>
+
+ <%= label_tag 'Adresse mail' %>
+<%= text_field_tag :email, params[:email]%>
+<br /> <br />
+    
+<%= label_tag 'Mot de passe' %>
+<%= password_field_tag :password, params[:password]%>
+<br /> <br />
+
+<%= submit_tag 'Envoyer' %>
+<% end -%>
+</center>
