@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
-   
+  before_action :authenticate_user, only: [:new, :create, :show]
+
   def new
    @gossip=Gossip.new
   end
@@ -8,15 +9,30 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
    end
 
-def create
-@gossip = Gossip.new(title: params[:title],content: params[:content],user_id: current_user[:id])
+   def create
+   @gossip = Gossip.new(title: params[:title],content: params[:content],user_id: current_user[:id])
 
- if @gossip.save
-  redirect_to(root_path, notice: "Gossip successfully created!")
- else
-  render '/gossips/new.html.erb'
+  if @gossip.save
+   redirect_to(root_path, notice: "Gossip successfully created!")
+   else
+   render '/gossips/new.html.erb'
  
+  end
 end
+
+def edit
+  @gossip = Gossip.find(params[:id])
+  if current_user.id == @gossip.user.id
+    @gossip = Gossip.find(params[:id])
+  else
+    redirect_to(gossip_path(params[:gossip_id]), notice: "Must be creator")
+  end
+end
+
+def authenticate_user
+  unless current_user
+    redirect_to(new_session_path, notice: 'Must be connected')
+  end
 end
 
 end
