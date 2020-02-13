@@ -1,0 +1,16 @@
+<h2 class="h1 mt-3 mb-4 ml-3 text-center">Discover the gossip n°<%= params[:id] %></h1>
+<container class="d-flex justify-content-around">
+  <div class="card-deck mb-3 d-flex justify-content-between" style="width: 36rem;">
+      <div class="card mx-4" style="width: 26rem;">
+        <div class="card-body">
+          <h5 class="card-title">The gossip '<%= @gossip.title %>'</h5>
+          <h6 class="card-subtitle mb-3 text-muted">submitted by <%= @gossip.user.first_name %></h6>
+          <h6 class="card-subtitle mb-3 text-muted">City: <%= @gossip.user.city.name %></h6>
+          <h4 class="card-text mb-4"><small class="text-muted"><%= @gossip.content %></small></h4>
+          <%= link_to "See the author's profile", user_path(@gossip.user_id), :class =>"card-link" %>
+        </div>
+      </div>
+    </div>
+    </container>
+  <br>
+  <p class="lead mt-3 mb-4 ml-3 text-center"><%= link_to "Return to the homepage", root_path, :class => "btn btn-primary" %></p>

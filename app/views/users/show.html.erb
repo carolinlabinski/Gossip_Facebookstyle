@@ -1,0 +1,30 @@
+<body>
+  <h1 class="h1 text-center mt-3 mb-4 ml-3">La page d'auteur</h1>
+  <div  class="card-deck mx-4 d-flex justify-content-between">
+    <div class="card d-flex justify-content-between mx-4" style="width: 20rem;">
+      <div class="card-header">
+      Information personelle
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Prénom: <%= @author.first_name %></li>
+        <li class="list-group-item">Nom: <%= @author.last_name %></li>
+        <li class="list-group-item">E-mail: <%= @author.email %></li>
+        <li class="list-group-item">Age: <%= @author.age %></li>
+        <li class="list-group-item">Ville: <%= @author.city.name %></li>
+      </ul>
+    </div>
+    <div class="card d-flex justify-content-between mx-4" style="width: 20rem;">
+      <div class="card-header">
+        Plus d'informations sur l'auteur:
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= @author.description %></li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <center>
+  <p> <%= link_to "Retour à la page d'accueil", root_path, :class => "btn btn-primary my-2" %>
+  <%= link_to "Afficher la page des villes", city_path(@author.city), :class => "btn btn-primary my-2" %></p>
+  </center>
+  </body>
