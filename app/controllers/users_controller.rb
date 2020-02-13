@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     redirect_to(root_path, notice: "Password successfully created!")
     else
-    render(new_sessions_path) 
+    render(new_user_path) 
     end
   end
 
