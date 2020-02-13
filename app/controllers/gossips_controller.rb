@@ -29,6 +29,29 @@ def edit
   end
 end
 
+def update
+  @gossip = Gossip.find(params[:id])
+  if current_user.id == @gossip.user.id
+    if @gossip.update(title: params[:title], content: params[:content])
+      redirect_to(root_path, notice: 'Gossip modified!')
+    else
+      render :edit
+    end
+  else
+    redirect_to(gossip_path(params[:gossip_id]), notice: "Must be creator")
+  end
+end
+
+def destroy
+  @gossip = Gossip.find(params[:id])
+  if current_user.id == @gossip.user.id
+    @gossip.destroy
+    redirect_to(root_path, notice: 'Gossip destroyed!')
+  else
+    redirect_to(gossip_path(params[:gossip_id]), notice: "Must be creator")
+  end
+end
+
 def authenticate_user
   unless current_user
     redirect_to(new_session_path, notice: 'Must be connected')

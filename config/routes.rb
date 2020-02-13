@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/contact', to: 'contact#display'
   get '/team', to: 'team#display'
   root 'home#index'
-  resources :gossips, only: [:show, :new, :create]
+  #resources :gossips, only: [:show, :new, :create]
+  resources :gossips
   resources :cities, only: [:show]
   resources :users, only: [:show, :new, :create]
   resources :sessions, only: [:new, :create, :destroy] 
