@@ -1,6 +1,9 @@
 class GossipsController < ApplicationController
   before_action :authenticate_user, only: [:new, :create, :show]
 
+  def index
+  end
+
   def new
    @gossip=Gossip.new
   end
