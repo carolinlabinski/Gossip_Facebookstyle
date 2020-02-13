@@ -9,7 +9,7 @@ class GossipsController < ApplicationController
    end
 
 def create
-@gossip = Gossip.new(title: params[:title],content: params[:content],user_id:11)
+@gossip = Gossip.new(title: params[:title],content: params[:content],user_id: current_user[:id])
 
  if @gossip.save
   redirect_to(root_path, notice: "Gossip successfully created!")
